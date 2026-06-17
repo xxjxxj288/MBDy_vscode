@@ -1,0 +1,221 @@
+{
+  "name": "mbsim-language-support",
+  "displayName": "MBDyn Language Support",
+  "description": "Language support for MBDyn multibody simulation files",
+  "version": "1.1.9",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:mbsim"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "mbsim.downloadSimulator",
+        "title": "下载最新Mbdyn",
+        "category": "MBSIM",
+        "icon": "$(cloud-download)"
+      },
+      {
+        "command": "mbsim.checkUpdate",
+        "title": "检查Mbdyn更新",
+        "category": "MBSIM",
+        "icon": "$(sync)"
+      },
+      {
+        "command": "mbsim.configure",
+        "title": "MBSim: 配置仿真路径或 ParaView 路径"
+      },
+      {
+        "command": "mbsim.configureSimulator",
+        "title": "MBSim: 设置仿真路径"
+      },
+      {
+        "command": "mbsim.configureParaview",
+        "title": "MBSim: 设置 ParaView 路径"
+      },
+      {
+        "command": "mbsim.runSimulation",
+        "title": "MBDyn: 运行动力学仿真"
+      },
+      {
+        "command": "mbsim.openParaview",
+        "title": "MBDyn: ParaView可视化"
+      },
+      {
+        "command": "mbsim.checkExtensionUpdate",
+        "title": "检查扩展更新",
+        "category": "MBSIM",
+        "icon": "$(extensions)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "mbsim.runSimulation",
+          "group": "navigation",
+          "when": "editorLangId == mbsim"
+        },
+        {
+          "command": "mbsim.openParaview",
+          "group": "navigation",
+          "when": "editorLangId == mbsim"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "MBSim",
+      "properties": {
+        "mbsim.simulator.path": {
+          "type": "string",
+          "default": "",
+          "description": "动力学仿真可执行文件的完整路径或命令名（如果在PATH中）。下载后会自动配置为 MBDyn_YYYYMMDD.exe 格式"
+        },
+        "mbsim.simulator.args": {
+          "type": "string",
+          "default": "${file}",
+          "description": "传递给仿真器的命令行参数，可使用变量 ${file}（当前文件）、${workspaceFolder} 等"
+        },
+        "mbsim.simulator.downloadUrl": {
+          "type": "string",
+          "default": "https://github.com/xxjxxj288/MBdyn/releases/download/mbdyn/",
+          "description": "Mbdyn下载基础URL（不含文件名）。完整URL会自动拼接为 {baseUrl}/MBDyn_YYYYMMDD.exe"
+        },
+        "mbsim.simulator.autoCheckUpdates": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否每天自动检查仿真程序更新"
+        },
+        "mbsim.paraview.path": {
+          "type": "string",
+          "default": "paraview",
+          "description": "ParaView可执行文件的完整路径或命令名（如果在PATH中）"
+        },
+        "mbsim.paraview.casePattern": {
+          "type": "string",
+          "default": "${fileBasenameNoExt}.case",
+          "description": "ParaView打开的case文件路径模式，相对于工作区。可使用变量 ${fileDirname}、${fileBasenameNoExt} 等"
+        },
+      "properties": {
+        "mbsim.extension.autoCheckUpdates": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否每天自动检查扩展自身更新"
+        }
+      }  
+
+
+
+      }
+    },
+    "languages": [
+      {
+        "id": "mbsim",
+        "aliases": [
+          "MBSIM",
+          "mbsim"
+        ],
+        "extensions": [
+          ".mbs",
+          ".mbsim"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "mbsim",
+        "scopeName": "source.mbsim",
+        "path": "./syntaxes/mbsim.tmLanguage.json"
+      }
+    ],
+    "configurationDefaults": {
+      "editor.tokenColorCustomizations": {
+        "[Default Light+]": {
+          "textMateRules": [
+            {
+              "scope": "source.mbsim comment",
+              "settings": {
+                "foreground": "#0f5217c7",
+                "fontStyle": "italic"
+              }
+            },
+            {
+              "scope": "comment.line.fold-marker.mbsim",
+              "settings": {
+                "foreground": "#B8860B",
+                "fontStyle": "bold"
+              }
+            },
+            {
+              "scope": "source.mbsim entity.name.type.mbsim",
+              "settings": {
+                "foreground": "#b820f4",
+                "fontStyle": "bold"
+              }
+            },
+            {
+              "scope": "source.mbsim variable.parameter.mbsim",
+              "settings": {
+                "foreground": "#0066dc"
+              }
+            },
+            {
+              "scope": "source.mbsim constant.language.mbsim",
+              "settings": {
+                "foreground": "#C82829"
+              }
+            },
+            {
+              "scope": "source.mbsim constant.numeric.mbsim",
+              "settings": {
+                "foreground": "#136a66"
+              }
+            },
+            {
+              "scope": "source.mbsim string.quoted.double.mbsim",
+              "settings": {
+                "foreground": "#718C00"
+              }
+            },
+            {
+              "scope": "source.mbsim variable.other.mbsim",
+              "settings": {
+                "foreground": "#000000"
+              }
+            },
+            {
+              "scope": "source.mbsim keyword.operator.assignment.mbsim",
+              "settings": {
+                "foreground": "#000000",
+                "fontStyle": "bold"
+              }
+            },
+            {
+              "scope": "source.mbsim punctuation.separator.comma.mbsim, source.mbsim punctuation.separator.slash.mbsim",
+              "settings": {
+                "foreground": "#000000"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.3",
+    "@types/vscode": "^1.74.0",
+    "typescript": "^4.9.4"
+  }
+}

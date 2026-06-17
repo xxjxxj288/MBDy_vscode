@@ -1,0 +1,40 @@
+{
+  "MBSIM Header": {
+    "prefix": "header",
+    "body": [
+      "[MBSIM_CABLE]",
+      "",
+      "[RIGIDBODY]",
+      "",
+      "[GEOMETRY]",
+      "",
+      "[FNODE]",
+      "",
+      "[MATERIAL]",
+      "",
+      "[SECTION]",
+      "",
+      "[ELEMENT]",
+      "",
+      "[CONSTRAINT]",
+      "",
+      "[INPUT]",
+      "",
+      "[OUTPUT]",
+      "",
+      "[COSIMULATION]"
+    ],
+    "description": "MBDyn文件标准结构"
+  },
+  "Cable Chain": {
+    "prefix": "cablechain",
+    "body": [
+      "! 创建${1:n}个缆索单元连接${2:startNode}到${3:endNode}",
+      "{",
+      "\t\"loop\": \"${4:i},1,${1:n}\",",
+      "\t\"template\": \"BEAMELE/${4:i}, beam${4:i}, TYPE=CABLE, SECTION=${5:sec1}, NODES=cq_${4:i}, cq_@{${4:i}+1}, LENGTH0=${6:0.05}, PRECONFIG_VALID=0\"",
+      "}"
+    ],
+    "description": "批量生成缆索单元（伪代码，实际需展开）"
+  }
+}

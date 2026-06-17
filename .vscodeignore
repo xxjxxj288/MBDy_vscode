@@ -1,0 +1,17 @@
+readme.aux
+readme.log
+readme.out
+readme.pdf
+readme.synctex.gz
+readme.tex
+*.zip
+kuangjia_1b.mbs
+github/
+*.vsix
+node_modules/
+.vscodeignore
+.token
+src/
+scripts/
+CLAUDE.md
+*.png

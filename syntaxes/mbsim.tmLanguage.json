@@ -1,0 +1,90 @@
+
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "MBSIM",
+  "scopeName": "source.mbsim",
+  "fileTypes": [".mbs", ".mbsim"],
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#keywords" },
+    { "include": "#identifiers" },
+    { "include": "#numbers" },
+    { "include": "#strings" },
+    { "include": "#operators" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.block.brackets.mbsim",
+          "begin": "\\[",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.comment.begin.mbsim" }
+          },
+          "end": "\\]",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.comment.end.mbsim" }
+          }
+        },
+        {
+          "name": "comment.line.fold-marker.mbsim",
+          "match": "^\\s*!<-!.*$|^\\s*!->!.*$"
+        },
+        {
+          "name": "comment.line.character.exclamation.mbsim",
+          "match": "^!.*$"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "entity.name.type.mbsim",
+          "match": "\\b(RIGIDBODY|GEOMETRY|FNODE|MATERIAL|SECTION|BEAMELE|SHELLELE|CONSTRAINT|MARKER|INPUT|OUTPUT|COSIM|ARCHIVE|CAMERA|GRAVITY|ENVSETUP|SOLVER)\\b(?=\\/)"
+        },
+        {
+          "name": "variable.parameter.mbsim",
+          "match": "\\b(TYPE|QG|VG|MASS|INERTIAL|GEOMETRY|FIX|COLLIDE|QR|SCALING|RADIUS|LENGTHS|OBJFILE|COLOR|TEXTURE_FILE|TEXTURE_SCALE|DENSITY|E|v|RAYLEIGHDAMPM|RAYLEIGHDAMPK|D|Y|Z|VISD|ANGLE|THICKNESS|ALPHA|BETA|RDAMP|BENDCOFF|SECTION|NODES|LENGTH0|PRECONFIG_VALID|LAYER|FNODE1|FNODE2|RIGIDBODY1|RIGIDBODY2|RIGIDBODY|CONSDOF|ABS_QG|MARKER1|MARKER2|ACT_MARKER|SLAVE_MARKER|BODY_NAME|K|DAMPING|F0|T0|CLASS|BODY_TYPE|NAME|PAR_NUM|INIT_VAL|PORTNUM|INPUT_NUM|OUTPUT_NUM|OUTPUT_FILE|INPUT_FILE|SAVEMBS_FILE|ENSIGHT_FILE|ALLDATA_FILE|EXODUS_FILE|POVRAY_FILE|VALID|VALUE|RESOLUTION|CAMERA_POS|DRAW|DRAWGRID|DRAWGRIDBG|DRAWBODYCS|DRAWMARKERCS|PIC_SAVE|VIS_SAVE_FRAMES|LIGHT1_POS_RAD_COL|LIGHT2_POS_RAD_COL|FLEX_COLLIDE|FLEX_COLLIDE_MODE|CONTACT_POINT_SIZE|FLEX_COLLIDE_MAT|INT_TYPE|TIMESTEP|TEND|ITERMAX|TOL_ABS|SOL_TYPE|CAM_MODE|MARKER_NAME|NEAR_VALUE|FAR_VALUE|FOVY|ASPECT|HEIGHT|ROU|X|BOT_CENTER|TOP_CENTER|SCALE|COG|SPHERE_SWEPT|SAFE_MARGIN|STATIC_FRICTION|CRITICAL_VELOCITY_VS|SLIDING_FRICTION|RESTITUTION|MATERIAL)\\b(?=\\s*=)"
+        },
+        {
+          "name": "constant.language.mbsim",
+          "match": "\\b(GENERAL|CYLINDER|BOX|SPHERE|OBJ|CABLE|BEAMEULER|VAR_LEN_CABLE|SHELL_ANCF|SHELL_REISSNER|FNODE_R|FNODE_RQ|FNODEA_RD|FNODEA_RQ|FNODEA_RDV|BEAM_CIRCLE_SEC|BEAM_RECT_SEC|SHELL_LAYER|REVOLUTE|SPHERICAL|CYLINDRICAL|PRISMATIC|UNIVERSAL|LOCK|FREE|MOTOR_VEL_ROT|MOTOR_ROT|MOTOR_VEL_LIN|MOTOR_LIN|FNODEA_POINT_POINT|FNODEA_POINT_FRAME|FNODEA_DIR_FRAME|CONSGENERIC|SPRING_DAMPER|ROT_SPRING_DAMPER|LINEAR_ACTUATOR|TORQUE_INPUT|FORCE_INPUT|FORCE_TORQUE_INPUT|RIGID_MOTION_INPUT|RIGID_MOTION_VEL_INPUT|RIGID_MOTION_ACC_INPUT|DRIVEN_INPUT|DRIVEN_MOTION_INPUT|VEL_INPUT|CHANGE_CONS_TYPE|SCALEMAX|SCALEMIN|MOTION_INPUT|LOCK_FREE|TIME_STEP|TIME|POSQUAT_OUTPUT|POSQUAT_VEL_OUTPUT|NODE_STAT_OUTPUT|NODE_STAT_VEL_OUTPUT|MARKER_STAT_OUTPUT|MARKER_STAT_VEL_OUTPUT|DRIVEN_OUTPUT|DRIVEN_VEL_OUTPUT|CONT_F_TOR_OUTPUT|BEAMSEC_F_TOR_OUTPUT|SPRING_FORCE_OUTPUT|SPRING_LENGTH_OUTPUT|SPRING_VEL_OUTPUT|CONS_FOR_OUTPUT|CONS_FOR_TOR_OUTPUT|MATLAB|FILE|INT_HHT|INT_HHTV|INT_EULER_IMPLICIT_LINEARIZED|INT_NEWMARK|FIX_CAM|SOLVER_MKL)\\b"
+        }
+      ]
+    },
+    "identifiers": {
+      "patterns": [{
+        "name": "variable.other.mbsim",
+        "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b"
+      }]
+    },
+    "numbers": {
+      "patterns": [{
+        "name": "constant.numeric.mbsim",
+        "match": "(?<![A-Za-z_])[-+]?\\d+(?:\\.\\d+)?(?:[eE][+-]?\\d+)?(?![A-Za-z_])"
+      }]
+    },
+    "strings": {
+      "patterns": [{
+        "name": "string.quoted.double.mbsim",
+        "match": "\"[^\"]*\""
+      }]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.assignment.mbsim",
+          "match": "="
+        },
+        {
+          "name": "punctuation.separator.comma.mbsim",
+          "match": ","
+        },
+        {
+          "name": "punctuation.separator.slash.mbsim",
+          "match": "/"
+        }
+      ]
+    }
+  }
+}

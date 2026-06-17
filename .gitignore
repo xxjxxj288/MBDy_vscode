@@ -1,0 +1,19 @@
+node_modules/
+out/
+*.vsix
+*.zip
+.token
+
+# LaTeX build artifacts
+readme.aux
+readme.log
+readme.out
+readme.pdf
+readme.synctex.gz
+readme.tex
+
+# Temp
+github/
+
+# Sample files
+kuangjia_1b.mbs
