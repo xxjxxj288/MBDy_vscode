@@ -13,6 +13,11 @@ const LAST_SHOWN_CHANGELOG_VERSION_KEY = 'mbsim.lastShownChangelogVersion';
 // 更新日志内容 - 每次发布新版本时修改这里
 const CURRENT_CHANGELOG = `## 🎉 MBDyn Language Support 更新内容
 
+v1.1.9
+**改进：**
+• SCALE 参数加入 GEOMETRY 关键字中，与 SCALING 互通用
+• SCALING 参数加入 RIGIDBODY 关键字中，与 SCALE 互通用
+
 v1.1.5
 **新增功能：**
 • 支持 URDF 文件交叉引用验证
