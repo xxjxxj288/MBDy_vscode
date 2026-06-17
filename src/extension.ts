@@ -603,8 +603,8 @@ function validateChineseChars(
 
 // ==================== MBSIM_SCHEMA 定义 ====================
 const MBSIM_SCHEMA: { [key: string]: { description: string; params: string[]; typeOptions?: { [param: string]: string[] }; } } = {
-  'RIGIDBODY': { description: '刚体定义', params: ['TYPE', 'QG', 'VG', 'MASS', 'INERTIAL', 'GEOMETRY', 'FIX', 'COLLIDE', 'MATERIAL', 'RADIUS', 'HEIGHT', 'ROU', 'X', 'Y', 'Z', 'OBJFILE', 'SPHERE_SWEPT', 'SAFE_MARGIN', 'SCALE', 'COG'], typeOptions: { 'TYPE': ['GENERAL', 'CYLINDER', 'BOX', 'SPHERE', 'OBJ'] } },
-  'GEOMETRY': { description: '几何体定义', params: ['TYPE', 'QR', 'SCALING', 'RADIUS', 'LENGTHS', 'OBJFILE', 'COLOR', 'TEXTURE_FILE', 'TEXTURE_SCALE', 'BOT_CENTER', 'TOP_CENTER', 'SPHERE_SWEPT', 'SAFE_MARGIN'], typeOptions: { 'TYPE': ['SPHERE', 'BOX', 'CYLINDER', 'OBJ'] } },
+  'RIGIDBODY': { description: '刚体定义', params: ['TYPE', 'QG', 'VG', 'MASS', 'INERTIAL', 'GEOMETRY', 'FIX', 'COLLIDE', 'MATERIAL', 'RADIUS', 'HEIGHT', 'ROU', 'X', 'Y', 'Z', 'OBJFILE', 'SPHERE_SWEPT', 'SAFE_MARGIN', 'SCALE', 'SCALING', 'COG'], typeOptions: { 'TYPE': ['GENERAL', 'CYLINDER', 'BOX', 'SPHERE', 'OBJ'] } },
+  'GEOMETRY': { description: '几何体定义', params: ['TYPE', 'QR', 'SCALE', 'SCALING', 'RADIUS', 'LENGTHS', 'OBJFILE', 'COLOR', 'TEXTURE_FILE', 'TEXTURE_SCALE', 'BOT_CENTER', 'TOP_CENTER', 'SPHERE_SWEPT', 'SAFE_MARGIN'], typeOptions: { 'TYPE': ['SPHERE', 'BOX', 'CYLINDER', 'OBJ'] } },
   'FNODE': { description: '柔性节点', params: ['TYPE', 'QG', 'VG'], typeOptions: { 'TYPE': ['FNODE_R', 'FNODE_RQ', 'FNODEA_RD', 'FNODEA_RDD', 'FNODEA_RDDD', 'FNODEA_RQ', 'FNODEA_RDV'] } },
   'MATERIAL': { description: '材料属性', params: ['DENSITY', 'E', 'V', 'RAYLEIGHDAMPM', 'RAYLEIGHDAMPK', 'STATIC_FRICTION', 'CRITICAL_VELOCITY_VS', 'SLIDING_FRICTION', 'RESTITUTION'] },
   'SECTION': { description: '截面属性', params: ['TYPE', 'D', 'Y', 'Z', 'MATERIAL', 'VISD', 'ANGLE', 'THICKNESS', 'ALPHA', 'BETA', 'RDAMP', 'BENDCOFF'], typeOptions: { 'TYPE': ['BEAM_CIRCLE_SEC', 'BEAM_RECT_SEC', 'SHELL_LAYER'] } },
