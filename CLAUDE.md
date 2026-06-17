@@ -85,15 +85,24 @@ cd "C:/Users/LENOVO/Desktop/MBdynstudy/mbsim-vscode-extension"
 TOKEN="ghp_xxx"  # read from .token file
 ```
 
-**Step 1 — Update version**: Edit `package.json`, change `"version": "X.Y.Z"`
+**Step 1 — Update extension content**: Edit `src/extension.ts` (keywords, parameters, diagnostics, completions, etc.) and any other source files needed.
 
-**Step 2 — Compile & Package**:
+**Step 2 — Update version**: Edit `package.json`, change `"version": "X.Y.Z"`
+
+**Step 3 — Compile & Package**:
 ```bash
 npm run compile
 npx vsce package
 ```
 
-**Step 3 — Upload to GitHub**:
+**Step 4 — Commit & Push source**:
+```bash
+git add -A
+git commit -m "Release vX.Y.Z: <brief summary of changes>"
+git push origin master
+```
+
+**Step 5 — Upload .vsix to GitHub Release**:
 ```bash
 # Fetch latest release and extract ID
 RELEASE_ID=$(curl -sS -H "Authorization: token $TOKEN" \
